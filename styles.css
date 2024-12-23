@@ -1,0 +1,229 @@
+/* General styles for the page */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background: linear-gradient(120deg, #001d3d, #004080);
+    line-height: 1.8;
+}
+
+/* Header */
+header {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 3em;
+    color: #ffffff;
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #aaaaaa;
+    font-family: 'Lobster', cursive;
+    letter-spacing: 2px;
+    display: inline-block; /* For proper centering */
+}
+
+h1::before {
+    content: '';
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background: url('images/sun.png') no-repeat center;
+    background-size: contain;
+    margin-right: 50px;
+    vertical-align: middle;
+    animation: glow 1.5s infinite alternate;
+}
+
+/* Glow animation */
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 10px #ffcc00) drop-shadow(0 0 20px #ffaa00);
+    }
+    to {
+        filter: drop-shadow(0 0 20px #ffaa00) drop-shadow(0 0 40px #ff8800);
+    }
+}
+
+/* Navigation */
+nav {
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffcc00;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    color: #ff8800;
+}
+
+/* Sections */
+section {
+    position: relative;
+    padding: 50px;
+    margin: 40px auto;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    max-width: 900px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+
+/* Snow for even sections (left edge) */
+section:nth-of-type(2n)::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: url('images/snow2.png') no-repeat left top;
+    background-size: contain;
+    z-index: 1;
+}
+
+/* Snow for odd sections (right edge) */
+section:nth-of-type(2n+1)::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: 0;
+    width: 100%;
+    height: 50px;
+    background: url('images/snow1.png') no-repeat right top;
+    background-size: contain;
+    z-index: 1;
+}
+
+/* For central sections (e.g., every 3rd) */
+section:nth-of-type(3n)::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 50px;
+    background: url('images/snow1.png') no-repeat center top;
+    background-size: contain;
+    z-index: 1;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Section headers */
+section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #00ccff;
+    text-shadow: 0 0 10px #00ccff, 0 0 20px #0066cc;
+}
+
+/* Text within sections */
+section p {
+    text-align: left;
+    margin: 0 auto;
+    color: #e0f7fa;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: url('images/footer.png') repeat-x center bottom;
+    background-size: auto 200px;
+    color: #ffffff;
+    position: relative;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    text-shadow: none;
+}
+
+footer nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+footer nav ul li {
+    margin: 0 10px;
+}
+
+footer nav ul li a {
+    text-decoration: none;
+    color: #ffcc00;
+    transition: color 0.3s ease;
+    text-shadow: 0 0 15px #000000;
+}
+
+footer nav ul li a:hover {
+    color: #ff8800;
+}
+
+/* Snow animation */
+.snowflake {
+    position: absolute;
+    top: 0;
+    color: #fff;
+    opacity: 0.8;
+    animation: fall linear infinite;
+    font-size: 20px;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10%);
+    }
+    100% {
+        transform: translateY(110vh);
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+    }
+}
