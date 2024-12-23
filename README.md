@@ -59,16 +59,5 @@ This project was created as part of the **[Frontend Challenge - December Edition
     Double-click the file in your file explorer.
     Or use a local development server (e.g., Live Server in VS Code).
 
-## 💡 Challenge Requirements
-
-- Use the given semantic HTML structure:
-        No changes to the HTML file.
-- Focus on CSS for design and interactivity:
-        Custom styles and animations.
-- Implement a Winter Solstice theme:
-        Reflect the spirit of the event in the design.
-- Ensure full responsiveness:
-        The design should work perfectly on all devices.
-
 ## 📝 License: 
 This project is licensed under the MIT License. Feel free to use or modify it as needed!
