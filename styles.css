@@ -86,7 +86,7 @@ nav ul li a:hover {
 section {
     position: relative;
     padding: 50px;
-    margin: 40px auto;
+    margin: 50px auto;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
@@ -95,6 +95,18 @@ section {
     transform: translateY(50px);
     transition: all 1s ease-out;
 }
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#science p {
+    margin: 1.5rem 0; 
+    line-height: 1.9; 
+    text-align: justify;
+}
+
 
 /* Snow for even sections (left edge) */
 section:nth-of-type(2n)::before {
@@ -156,6 +168,135 @@ section p {
     margin: 0 auto;
     color: #e0f7fa;
 }
+
+
+
+/* Section 1: image below text */
+section:nth-of-type(1) {
+    display: block;
+}
+
+section:nth-of-type(1)::after {
+    content: '';
+    display: block;
+    margin: 20px auto 0;
+    width: 100%;
+    height: 620px;
+    background: url('images/sec1.jpg') no-repeat center center;
+    background-size: cover;
+    border-radius: 20px;
+}
+
+/* Section 2: image below text */
+section:nth-of-type(2) {
+    display: block; 
+}
+
+section:nth-of-type(2)::after {
+    content: '';
+    display: block;
+    margin: 20px auto 0;
+    width: 100%;
+    height: 420px;
+    background: url('images/sec2.png') no-repeat center center;
+    background-size: cover;
+    border-radius: 20px;   
+}
+
+/* Section 3: image below text */
+section:nth-of-type(3) {
+    display: block; 
+}
+
+section:nth-of-type(3)::after {
+    content: '';
+    display: block;
+    margin: 20px auto 0;
+    width: 100%;
+    height: 420px;
+    background: url('images/sec3.webp') no-repeat center center;
+    background-size: cover;
+    border-radius: 20px;  
+}
+
+
+/* Section 4: Styles for the slider container */
+.slider-container {
+    position: relative;
+    max-width: 90%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Styles for slider container */
+.slider-container {
+    position: relative;
+    max-width: 90%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Slides */
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    height: 500px; /* Height of slides */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Control buttons */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.slider-btn.prev {
+    left: 10px;
+}
+
+.slider-btn.next {
+    right: 10px;
+}
+
+/* Indicators (dots) */
+.slider-dots {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.slider-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider-dot.active {
+    background-color: #666;
+}
+
 
 /* Footer */
 footer {
@@ -227,3 +368,161 @@ footer nav ul li a:hover {
         letter-spacing: 1px;
     }
 }
+
+
+/* Common styles for images in sections */
+section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* Slider: styles for adaptation */
+.slider-container {
+    max-width: 90%;
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 100%;
+    height: 480px; 
+    background-size: cover;
+    background-position: center;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.slider-btn.prev {
+    left: 10px;
+}
+
+.slider-btn.next {
+    right: 10px;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.slider-dot.active {
+    background-color: #fff;
+}
+
+/* Media queries for images and slider */
+@media (max-width: 1024px) {
+   /* Reduce the height of slides */
+    .slide {
+        height: 250px;
+    }
+
+    /* Slider buttons are smaller */
+    .slider-btn {
+        font-size: 20px;
+        padding: 8px;
+    }
+
+   /* Indicator dots are smaller */
+    .slider-dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Height of slides for tablets */
+    .slide {
+        height: 200px;
+    }
+
+    /* Increase indents for adaptation */
+    .slider-container {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Height of slides for mobile devices */
+    .slide {
+        height: 150px;
+    }
+
+    /* Reduce the size of the buttons */
+    .slider-btn {
+        font-size: 18px;
+        padding: 5px;
+    }
+
+   /* Indicator dots are even smaller */
+    .slider-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    /* Images are adjusted to fit small screens */
+    section img {
+        border-radius: 10px;
+    }
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 100px;
+    right: 100px; 
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px);
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#backToTop:hover {
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
