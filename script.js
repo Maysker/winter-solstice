@@ -18,7 +18,7 @@ const sections = document.querySelectorAll('section');
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         const section = entry.target;
-        // Add or remove the visible class only if more than half of the section is visible
+        // Add or remove the visible class only if more than 30% of the section is visible
         if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
             section.classList.add('visible'); // Show the section
         } else {
@@ -27,9 +27,13 @@ const observer = new IntersectionObserver(entries => {
             }
         }
     });
-}, { threshold: [0.3] }); // Triggered at 30% visibility
+}, { 
+    threshold: [0.3], // Triggered at 30% visibility
+    rootMargin: '0px 0px -50px 0px' // Add 50px margin at the bottom to avoid early triggering
+});
 
 sections.forEach(section => observer.observe(section));
+
 
 // Create a container for snowflakes
 const snowContainer = document.createElement('div');
